@@ -39,6 +39,7 @@
         <item>org.droidtv.channels</item>
         <item>com.opera.sdk.example</item>
         <item>com.android.vending</item>
+        <item>org.droidtv.contentexplorer</item>
     </string-array>
 
     <!-- The TV's Live TV / tuner app, offered at the end of the Inputs menu. Leave empty to omit. -->

@@ -31,6 +31,8 @@ and `sdkmanager "platforms;android-34" "build-tools;34.0.0"`. On Linux the insta
 - `reduced_motion`, for TVs whose GPU cannot keep up.
 
 Themes set the same keys plus a background colour and a wallpaper.
+In this fork, the standard dock and app grid are centered and compact when set to two or three columns;
+the usual width is retained for larger grids and for single-row layouts.
 
 ## Launcher settings and the default home
 

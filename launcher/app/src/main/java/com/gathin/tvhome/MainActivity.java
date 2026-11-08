@@ -613,6 +613,20 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
         libraryExcludedApps = new HashSet<>(cfg.libraryExcludedApps);
 
         grid = findViewById(R.id.grid);
+        if (dockRow && !singleRow && COLUMNS >= 2 && COLUMNS <= 3) {
+            View gridParent = (View) grid.getParent();
+            gridParent.addOnLayoutChangeListener((v, l, t, r, b, ol, ot, or, ob) -> {
+                int available = r - l;
+                int compactWidth = Math.min(available,
+                        Math.round((COLUMNS * (AppAdapter.DESIGN_W_DP + 30f) + 20f) * density));
+                FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) grid.getLayoutParams();
+                if (compactWidth > 0 && (params.width != compactWidth || params.gravity != Gravity.CENTER_HORIZONTAL)) {
+                    params.width = compactWidth;
+                    params.gravity = Gravity.CENTER_HORIZONTAL;
+                    grid.setLayoutParams(params);
+                }
+            });
+        }
         rtlAppGrid = getResources().getBoolean(R.bool.rtl_app_grid);
         // Mirror only the app grid; the header and other locales keep their own layouts.
         // single_row: one span laid out sideways, so the same adapter, glass and dock band serve a scrolling row.
