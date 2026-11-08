@@ -42,6 +42,16 @@ public class WallpaperRotationTest {
     }
 
     @Test
+    public void supportsOneThousandImagesAndStopsAtTheLimit() throws IOException {
+        File dir = Files.createTempDirectory("walls-limit").toFile();
+        for (int i = 0; i < 1001; i++) touch(dir, String.format(java.util.Locale.ROOT, "%04d.jpg", i), 1);
+        List<File> images = WallpaperRotation.images(dir);
+        assertEquals(1000, images.size());
+        assertEquals("0000.jpg", images.get(0).getName());
+        assertEquals("0999.jpg", images.get(999).getName());
+    }
+
+    @Test
     public void pickAvoidsThePreviousPictureWhenThereIsAnother() {
         List<File> images = Arrays.asList(new File("a.jpg"), new File("b.jpg"));
         Random random = new Random(1);

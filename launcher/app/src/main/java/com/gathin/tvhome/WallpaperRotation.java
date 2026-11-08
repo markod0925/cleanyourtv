@@ -10,6 +10,8 @@ import java.util.Locale;
 import java.util.Random;
 
 final class WallpaperRotation {
+    /** Maximum number of files held in the rotation and wallpaper picker. */
+    static final int MAX_IMAGES = 1000;
     /** Playback orders persisted in config.json (wallpaper_order). */
     static final String ORDER_SEQUENTIAL = "sequential";
     static final String ORDER_SHUFFLE = "shuffle";
@@ -29,7 +31,7 @@ final class WallpaperRotation {
                     && (name.endsWith(".jpg") || name.endsWith(".jpeg")
                     || name.endsWith(".png") || name.endsWith(".webp"))) {
                 result.add(entry);
-                if (result.size() == 100) break;
+                if (result.size() == MAX_IMAGES) break;
             }
         }
         return result;

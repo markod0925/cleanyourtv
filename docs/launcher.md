@@ -51,7 +51,7 @@ Click **Settings** for the TV's own settings. Hold OK on it for its menu:
 The launcher's own page has these rows, top to bottom:
 
 - **Reorder apps**, only with `launcher_settings_button`, the same as the menu's.
-- **Apps per row** 4, 5, 6 or 7; **Rows below dock** 0 to 3, how many rows of tiles stay visible under the
+- **Apps per row** 2 to 7; **Rows below dock** 0 to 3, how many rows of tiles stay visible under the
   dock band; **Dock band opacity** 100%, 70%, 50% or 30%. The last two only do anything while the dock is
   its own row (`dock_row`, on by default).
 - **Clock**: **System** follows the TV's 12- or 24-hour setting; **12-hour** or **24-hour** sets the launcher's
